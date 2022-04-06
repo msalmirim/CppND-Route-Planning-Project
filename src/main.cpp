@@ -55,6 +55,50 @@ int main(int argc, const char **argv)
     // TODO 1: Declare floats `start_x`, `start_y`, `end_x`, and `end_y` and get
     // user input for these values using std::cin. Pass the user input to the
     // RoutePlanner object below in place of 10, 10, 90, 90.
+    float start_x;
+    float start_y;
+    float end_x;
+    float end_y;
+    
+    std::cout << "Please enter the coordinates of the starting node (x, y) \n";
+    while ((std::cout << "x = ") && 
+           (!(std::cin >> start_x) ||       
+            (start_x > 100.0f) ||
+            (start_x < 0.0f)))
+    {
+      std::cout << "The x coordinate that you have entered is out of range [0, 100] \n";
+      std::cin.clear();
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+    while ((std::cout << "y = ") && 
+           (!(std::cin >> start_y) ||       
+            (start_y > 100.0f) ||
+            (start_y < 0.0f)))
+    {
+      std::cout << "The y coordinate that you have entered is out of range [0, 100] \n";
+      std::cin.clear();
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+
+    std::cout << "Please enter the coordinates of the ending node \n";  
+    while ((std::cout << "x = ") && 
+           (!(std::cin >> end_x) ||       
+            (end_x > 100.0f) ||
+            (end_x < 0.0f)))
+    {
+      std::cout << "The x coordinate that you have entered is out of range [0, 100]\n";
+      std::cin.clear();
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+    while ((std::cout << "y = ") && 
+           (!(std::cin >> end_y) ||       
+            (end_y > 100.0f) ||
+            (end_y < 0.0f)))
+    {
+      std::cout << "The y coordinate that you have entered is out of range [0, 100] \n";
+      std::cin.clear();
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
 
     // Build Model.
     RouteModel model{osm_data};
