@@ -59,7 +59,7 @@ void RoutePlanner::AddNeighbors(RouteModel::Node *current_node) {
 
 RouteModel::Node *RoutePlanner::NextNode() {
     
-  sort(open_list.begin(), open_list.end(), [] (const RouteModel::Node* n1, const RouteModel::Node* n2) {n1->h_value + n1->g_value > n2->h_value + n2->g_value});
+  sort(open_list.begin(), open_list.end(), [] (const RouteModel::Node* n1, const RouteModel::Node* n2) {return (n1->h_value + n1->g_value > n2->h_value + n2->g_value);});
   RouteModel::Node* lowest_node = this->open_list.back();
   this->open_list.pop_back();
   return lowest_node;
